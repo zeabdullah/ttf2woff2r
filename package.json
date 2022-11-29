@@ -1,0 +1,28 @@
+{
+  "name": "ttf2woff2r",
+  "description": "A fork of ttf2woff2 that can recursively convert ttf fonts in folders",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "ttf",
+    "woff",
+    "woff2",
+    "fonts",
+    "cli",
+    "npx"
+  ],
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon ."
+  },
+  "dependencies": {
+    "ttf2woff2": "^4.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/ttf2woff2": "^2.0.0",
+    "nodemon": "^2.0.20"
+  }
+}
