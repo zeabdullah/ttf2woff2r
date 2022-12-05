@@ -11,6 +11,7 @@
     "woff2",
     "fonts",
     "cli",
+    "recursively",
     "npx"
   ],
   "scripts": {
@@ -18,11 +19,12 @@
     "dev": "nodemon ."
   },
   "dependencies": {
-    "ttf2woff2": "^4.0.5"
+    "enquirer": "^2.3.6",
+    "readdirp": "^3.6.0",
+    "ttf2woff2-no-gyp": "^4.0.6"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "@types/ttf2woff2": "^2.0.0",
     "nodemon": "^2.0.20"
   }
 }
