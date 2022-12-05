@@ -19,7 +19,6 @@
     "dev": "nodemon ."
   },
   "dependencies": {
-    "enquirer": "^2.3.6",
     "readdirp": "^3.6.0",
     "ttf2woff2-no-gyp": "^4.0.6"
   },

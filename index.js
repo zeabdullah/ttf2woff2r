@@ -1,18 +1,9 @@
-const Enquirer = require('enquirer')
 const fs = require('fs/promises')
 const readdirp = require('readdirp')
 const ttf2woff2 = require('ttf2woff2-no-gyp')
 
-async function start(args) {
-  if (args.length < 1) {
-  }
-  args.forEach(arg => {
-    if (isADir(arg)) {
-      convertToWoff2Recursively(arg)
-    } else if (isAFile(arg)) {
-      convertFileToWoff2(arg)
-    }
-  })
+async function start(dir) {
+  convertToWoff2Recursively(dir)
 }
 
 async function convertFileToWoff2(file) {
@@ -45,6 +36,4 @@ async function convertToWoff2Recursively(dir) {
   console.log(`🎉 conversion successful for files in '${dir}'`)
 }
 
-start(process.argv.slice(2))
-console.log(process.argv.slice(1))
-console.log(process.argv.slice(2))
+start(process.argv[2])
