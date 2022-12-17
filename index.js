@@ -1,9 +1,11 @@
+const c = require('ansi-colors')
 const fs = require('fs/promises')
 const readdirp = require('readdirp')
 const ttf2woff2 = require('ttf2woff2-no-gyp')
+require('ansi-colors')
 
 async function start(dir) {
-  convertToWoff2Recursively(dir)
+  await convertToWoff2Recursively(dir)
 }
 
 async function convertFileToWoff2(file) {
@@ -16,13 +18,11 @@ async function convertFileToWoff2(file) {
     const newFilePath = pathWithoutExtension + '.woff2'
     const oldFileData = await fs.readFile(file.fullPath)
 
-    return fs.writeFile(newFilePath, ttf2woff2(oldFileData))
+    await fs.writeFile(newFilePath, ttf2woff2(oldFileData))
+    console.log(c.green(`✔ Converted to ${newFilePath}`))
   } catch (err) {
     console.log(
-      '😢 conversion of',
-      file.basename,
-      'to woff2 failed:',
-      err.message
+      c.red(`✖ conversion of ${file.basename} to woff2 failed: ${err.message}`)
     )
   }
 }
@@ -33,7 +33,6 @@ async function convertToWoff2Recursively(dir) {
       await convertFileToWoff2(entry)
     }
   }
-  console.log(`🎉 conversion successful for files in '${dir}'`)
 }
 
 start(process.argv[2])
